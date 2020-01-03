@@ -1,5 +1,32 @@
 # Core Java - Fundamentals
 
+## Fundamentals
+
+### Data Types
+
+Java is a strongly typed language. There are eight primitive types in Java.
+
+* Integer: `byte`, `short`, `int` and `long`, `int` is most practical, `byte`
+  and `short` are mainly intended for performance or resource sensitive related
+  scenarios
+* Compared with C and C++, Java integer ranges are platform independent
+* Long integers have a suffix `L` or `l`
+* Hexadecimal numbers have a prefix `0x` or `0X`
+* Octal numbers have a prefix `0`, which may cause confusion, so not recommended
+  to use
+* Starting from SE7, binary numbers are supported with a prefix `0b` or `0B`,
+  and underscores are supported for big numbers for better human reading. (The
+  underscores are removed by the compiler)
+
+There are two floating-point types: `float` and `double`. Usually, `double`
+should be used, for the significant decimal digits is double (15 v.s. 6-7).
+
+* `float` numbers have a suffix `F` or `f`
+* `double` numbers have a suffix `D` or `d`
+* `double` is by default when there is no suffix to a float-point number
+* `BigDecimal` should be used for high precision demanding scenarios, e.g.:
+  banking
+
 ## Inheritance
 
 ### Object
@@ -16,6 +43,27 @@ for (int i = 0; i < length(); i++)
 
 For strings, the hash codes are derived from their contents, for objects like
 `StringBuilder` it derives the hash code from the object’s memory address
+
+## Lambda Expressions
+
+* A lambda expression is all about giving someone a block of code, which was not easy before Java 8
+* It is and only can be a conversion to a functional interface
+* It is short, simple and much easier to read compared with the traditional way to implement the code inside an inner class
+* Form: `[(para1 [, para2 [, ...]])] -> [{statement1 [; statement2 [,...]]}]`
+* Parameter type and parentheses are optional, the result type must be deduced from context
+
+`functional interface` is an interface with a single abstract method defined,
+e.g.: `ActionListener` and `Comparator`, with which the lambdas are compatible.
+There are a number of very generic functional interfaces defined in
+`java.util.function`, of which `BiFunction<T, U, R>` and `Predicate<T>` are
+particularly useful.
+
+Method reference
+
+* `object::instanceMethod`: `this::equals`, `super::greet`
+* `Class::staticMethod`: `System.out::println`
+* `Class::instanceMethod`
+* Also constructor reference: `Person::new`, the specific constructor is called depending on the context
 
 ## Collections
 
