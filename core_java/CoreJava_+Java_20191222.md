@@ -27,6 +27,27 @@ should be used, for the significant decimal digits is double (15 v.s. 6-7).
 * `BigDecimal` should be used for high precision demanding scenarios, e.g.:
   banking
 
+### Input and Output
+
+Formated output via `printf` (similar like `C`) is available since Java 5. The
+detailed *format specifiers* can be very complicated, which should be referred
+to online while being used.
+
+## Objects and Classes
+
+How to design your own classes?
+
+* Always keep data (instance fields / instance variables) private
+* Always initialize data: class and instance variables will be initialized by
+  default, but local variables not
+* Don't use too many basic types in a class: ask yourself whether it makes sense
+  to put some basic types into a new class
+* Not all fields need accessors and mutators: some fields you don't want to be
+  accessed or changed
+* Break up classes having too many responsibilities
+* Define he class and method names reflecting their responsibilities
+* Prefer immutable classes: safe to be shared among multiple threads
+
 ## Inheritance
 
 ### Object
@@ -46,11 +67,14 @@ For strings, the hash codes are derived from their contents, for objects like
 
 ## Lambda Expressions
 
-* A lambda expression is all about giving someone a block of code, which was not easy before Java 8
+* A lambda expression is all about giving someone a block of code, which was not
+  easy before Java 8
 * It is and only can be a conversion to a functional interface
-* It is short, simple and much easier to read compared with the traditional way to implement the code inside an inner class
+* It is short, simple and much easier to read compared with the traditional way
+  to implement the code inside an inner class
 * Form: `[(para1 [, para2 [, ...]])] -> [{statement1 [; statement2 [,...]]}]`
-* Parameter type and parentheses are optional, the result type must be deduced from context
+* Parameter type and parentheses are optional, the result type must be deduced
+  from context
 
 `functional interface` is an interface with a single abstract method defined,
 e.g.: `ActionListener` and `Comparator`, with which the lambdas are compatible.
@@ -63,7 +87,8 @@ Method reference
 * `object::instanceMethod`: `this::equals`, `super::greet`
 * `Class::staticMethod`: `System.out::println`
 * `Class::instanceMethod`
-* Also constructor reference: `Person::new`, the specific constructor is called depending on the context
+* Also constructor reference: `Person::new`, the specific constructor is called
+  depending on the context
 
 ## Collections
 
